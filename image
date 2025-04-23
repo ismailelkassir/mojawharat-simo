@@ -1,0 +1,8 @@
+my-project/
+│
+├── index.html
+├── style.css
+├── images/
+│   ├── ring.png
+│   ├── necklace.png
+│   └── bracelet.png
