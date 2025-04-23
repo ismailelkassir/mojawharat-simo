@@ -139,89 +139,6 @@
       width: 100%;
     }
 
-    .form-box {
-      max-width: 300px;
-      background: #f1f7fe;
-      overflow: hidden;
-      border-radius: 16px;
-      color: #010101;
-      margin: 40px auto;
-    }
-
-    .form {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 32px 24px 24px;
-      gap: 16px;
-      text-align: center;
-    }
-
-    .title {
-      color: #264143;
-      font-weight: 900;
-      font-size: 1.5em;
-      margin-top: 20px;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: #666;
-    }
-
-    .form-container {
-      overflow: hidden;
-      border-radius: 8px;
-      background-color: #fff;
-      margin: 1rem 0 .5rem;
-      width: 100%;
-    }
-
-    .input {
-      background: none;
-      border: 0;
-      outline: 0;
-      height: 40px;
-      width: 100%;
-      border-bottom: 1px solid #eee;
-      font-size: .9rem;
-      padding: 8px 15px;
-    }
-
-    .form-section {
-      padding: 16px;
-      font-size: .85rem;
-      background-color: #e0ecfb;
-      box-shadow: rgb(0 0 0 / 8%) 0 -1px;
-    }
-
-    .form-section a {
-      font-weight: bold;
-      color: #0066ff;
-      transition: color .3s ease;
-    }
-
-    .form-section a:hover {
-      color: #005ce6;
-      text-decoration: underline;
-    }
-
-    .form button {
-      background-color: #0066ff;
-      color: #fff;
-      border: 0;
-      border-radius: 24px;
-      padding: 10px 16px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color .3s ease;
-    }
-
-    .form button:hover {
-      background-color: #005ce6;
-    }
-
     .container {
       display: flex;
       align-items: center;
@@ -243,6 +160,13 @@
       box-shadow: 3px 4px 0px 1px #E99F4C;
       margin: 40px auto;
       padding: 20px;
+    }
+
+    .title {
+      color: #264143;
+      font-weight: 900;
+      font-size: 1.5em;
+      margin-top: 20px;
     }
 
     .sub_title {
@@ -281,6 +205,7 @@
       border-radius: 10px;
       font-weight: 800;
       box-shadow: 3px 3px 0px 0px #E99F4C;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -299,66 +224,76 @@
   <header>
     <div class="logo">مجوهرات سيمو</div>
     <div class="icons">
-      <a href="#login">👤 تسجيل الدخول</a>
       <a href="#signup">📝 التسجيل</a>
-      <a href="#">❤️ المفضلة</a>
-      <a href="#">🛒 السلة</a>
+      <a href="#favorites" onclick="showFavorites()">❤️ المفضلة</a>
+      <a href="#cart">🛒 السلة</a>
     </div>
   </header>
 
-  <!-- باقي صفحة المنتجات تبقى كما هي -->
-
-  <section id="login">
-    <div class="form-box">
-      <form class="form">
-        <span class="title">تسجيل الدخول</span>
-        <span class="subtitle">مرحباً بك من جديد!</span>
-        <div class="form-container">
-          <input type="email" class="input" placeholder="البريد الإلكتروني" required>
-          <input type="password" class="input" placeholder="كلمة المرور" required>
+  <section class="container">
+    <div class="form_area">
+      <p class="title">معلومات الشراء</p>
+      <form action="" onsubmit="handleFormSubmit(event)">
+        <div class="form_group">
+          <label class="sub_title" for="fullname">الاسم الكامل</label>
+          <input class="form_style" type="text" id="fullname" placeholder="أدخل اسمك الكامل" required>
         </div>
-        <button type="submit">دخول</button>
+        <div class="form_group">
+          <label class="sub_title" for="phone">رقم الهاتف</label>
+          <input class="form_style" type="tel" id="phone" placeholder="06xxxxxxxx" required>
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="city">المدينة</label>
+          <input class="form_style" type="text" id="city" placeholder="المدينة التي تسكن بها" required>
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="address">العنوان الكامل</label>
+          <input class="form_style" type="text" id="address" placeholder="أدخل عنوانك بالتفصيل" required>
+        </div>
+        <button class="btn" type="submit">تأكيد الشراء</button>
       </form>
-      <div class="form-section">
-        لا تملك حساباً؟ <a href="#signup">سجل الآن</a>
-      </div>
     </div>
   </section>
 
-  <section id="signup">
-    <div class="container">
-      <div class="form_area">
-        <p class="title">SIGN UP</p>
-        <form action="">
-          <div class="form_group">
-            <label class="sub_title" for="name">Name</label>
-            <input placeholder="Enter your full name" class="form_style" type="text">
-          </div>
-          <div class="form_group">
-            <label class="sub_title" for="email">Email</label>
-            <input placeholder="Enter your email" id="email" class="form_style" type="email">
-          </div>
-          <div class="form_group">
-            <label class="sub_title" for="password">Password</label>
-            <input placeholder="Enter your password" id="password" class="form_style" type="password">
-          </div>
-          <div>
-            <button class="btn">SIGN UP</button>
-            <p>Have an Account? <a class="link" href="#login">Login Here!</a></p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
+  <section class="products" id="favorites" style="display:none;"></section>
 
   <script>
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const favoriteProducts = [];
+
+    function toggleFavorite(button, productHtml) {
+      const isFav = button.classList.toggle('active');
+      button.style.color = isFav ? 'red' : 'black';
+
+      if (isFav) {
+        favoriteProducts.push(productHtml);
+      } else {
+        const index = favoriteProducts.indexOf(productHtml);
+        if (index > -1) {
+          favoriteProducts.splice(index, 1);
+        }
+      }
+    }
+
+    function showFavorites() {
+      const container = document.getElementById('favorites');
+      container.innerHTML = favoriteProducts.join('');
+      container.style.display = 'flex';
+      window.scrollTo({ top: container.offsetTop, behavior: 'smooth' });
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('fullname').value;
+      const phone = document.getElementById('phone').value;
+      const city = document.getElementById('city').value;
+      const address = document.getElementById('address').value;
+      const message = `طلب جديد من مجوهرات سيمو:\n\nالاسم: ${name}\nالهاتف: ${phone}\nالمدينة: ${city}\nالعنوان: ${address}`;
+      const whatsappUrl = `https://wa.me/212123456789?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
     }
   </script>
 
 </body>
 </html>
-
 
 
