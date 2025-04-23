@@ -224,6 +224,7 @@
   <header>
     <div class="logo">مجوهرات سيمو</div>
     <div class="icons">
+      <a href="#" onclick="window.location.reload()">🏠 الرئيسية</a>
       <a href="#signup">📝 التسجيل</a>
       <a href="#favorites" onclick="showFavorites()">❤️ المفضلة</a>
       <a href="#cart">🛒 السلة</a>
@@ -294,6 +295,45 @@
   </script>
 
 </body>
-</html>
+<script>
+  const sampleProducts = [
+    {
+      title: 'خاتم ذهبي فاخر',
+      description: 'خاتم أنيق مطلي بالذهب عيار 18 قيراط.',
+      image: 'https://via.placeholder.com/280x200?text=خاتم'
+    },
+    {
+      title: 'سلسلة لؤلؤ راقية',
+      description: 'سلسلة مرصعة باللؤلؤ الطبيعي لأناقة لا مثيل لها.',
+      image: 'https://via.placeholder.com/280x200?text=سلسلة'
+    },
+    {
+      title: 'أقراط فاخرة',
+      description: 'أقراط مميزة بتصميم عصري وجذاب.',
+      image: 'https://via.placeholder.com/280x200?text=أقراط'
+    }
+  ];
 
+  const productContainer = document.querySelector('.products');
+
+  sampleProducts.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.title}">
+      <div class="card__content">
+        <h3 class="card__title">${product.title}</h3>
+        <p class="card__description">${product.description}</p>
+        <div class="buttons">
+          <button class="cart-button">أضف إلى السلة</button>
+          <button class="buy-button">شراء</button>
+          <button class="fav-button" onclick="toggleFavorite(this, \`${card.outerHTML}\`)">❤️</button>
+        </div>
+      </div>
+    `;
+    productContainer.appendChild(card);
+  });
+</script>
+  
+</html>
 
