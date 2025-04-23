@@ -8,7 +8,7 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background: linear-gradient(135deg, #f3e5ab, #e0c36e);
     }
 
     header {
@@ -44,20 +44,16 @@
     .card {
       position: relative;
       width: 280px;
-      height: 320px;
+      height: 380px;
       background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
       border-radius: 10px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       overflow: hidden;
       transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    }
-
-    .card svg {
-      width: 48px;
-      fill: #333;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+      padding-bottom: 20px;
     }
 
     .card:hover {
@@ -66,41 +62,29 @@
     }
 
     .card__content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg);
+      position: relative;
+      transform: rotate(0deg);
       width: 100%;
-      height: 100%;
-      padding: 20px;
+      height: auto;
+      padding: 10px 20px;
       box-sizing: border-box;
       background-color: #fff;
-      opacity: 0;
       transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-    }
-
-    .card:hover .card__content {
-      transform: translate(-50%, -50%) rotate(0deg);
-      opacity: 1;
+      text-align: center;
     }
 
     .card__title {
-      margin: 0;
+      margin: 10px 0 0;
       font-size: 20px;
       color: #333;
       font-weight: 700;
     }
 
     .card__description {
-      margin: 10px 0 0;
+      margin: 10px 0;
       font-size: 14px;
       color: #777;
       line-height: 1.4;
-    }
-
-    .card:hover svg {
-      scale: 0;
-      transform: rotate(-45deg);
     }
 
     .card img {
@@ -108,41 +92,53 @@
       height: 200px;
       object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 10px;
     }
 
     .buttons {
       display: flex;
       gap: 10px;
-      margin-top: 10px;
+      justify-content: center;
+      margin-top: 15px;
     }
 
     .cart-button, .buy-button {
-      flex: 1;
-      padding: 8px;
-      font-weight: bold;
-      font-size: 14px;
-      border: none;
-      border-radius: 6px;
+      padding: 15px 25px;
+      border: unset;
+      border-radius: 15px;
+      color: #212121;
+      z-index: 1;
+      background: #e8e8e8;
+      position: relative;
+      font-weight: 1000;
+      font-size: 17px;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+      transition: all 250ms;
+      overflow: hidden;
       cursor: pointer;
     }
 
-    .cart-button {
-      background-color: #d4af37;
-      color: white;
+    .cart-button::before, .buy-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      border-radius: 15px;
+      background-color: #212121;
+      z-index: -1;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+      transition: all 250ms;
     }
 
-    .buy-button {
-      background-color: #28a745;
-      color: white;
+    .cart-button:hover, .buy-button:hover {
+      color: #e8e8e8;
     }
 
-    .cart-button:hover {
-      background-color: #caa02b;
-    }
-
-    .buy-button:hover {
-      background-color: #218838;
+    .cart-button:hover::before, .buy-button:hover::before {
+      width: 100%;
     }
   </style>
 </head>
@@ -159,38 +155,38 @@
 
   <section class="products">
     <div class="card">
-      <img src="images/7abaf159-0987-4c6f-a7fd-c160451fc409.png" alt="طقم فضة راقي">
+      <img src="/mnt/data/file-Fgaw3kTmJaCaQcJmUuAYB3.png" alt="خاتم ذهبي فاخر">
       <div class="card__content">
-        <p class="card__title">طقم فضة راقي</p>
-        <p class="card__description">مرصع بالأحجار الوردية لتألق لا مثيل له</p>
-        <div class="buttons">
-          <button class="cart-button">أضف إلى السلة</button>
-          <button class="buy-button">اشترِ الآن</button>
-        </div>
+        <p class="card__title">خاتم فاخر</p>
+        <p class="card__description">خاتم ذهبي مرصع بفصوص براقة لأناقة راقية</p>
+      </div>
+      <div class="buttons">
+        <button class="cart-button">أضف إلى السلة</button>
+        <button class="buy-button">اشترِ الآن</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="images/1dee746a-8af0-454c-b72b-0ea0e6c71004.png" alt="عقد تقليدي">
+      <img src="/mnt/data/file-Cju7PFmRxSssz7dYEPS73P.png" alt="طقم تقليدي فاخر">
       <div class="card__content">
-        <p class="card__title">عقد مغربي</p>
-        <p class="card__description">تقليدي بلمسة عصرية من الخرز الأحمر</p>
-        <div class="buttons">
-          <button class="cart-button">أضف إلى السلة</button>
-          <button class="buy-button">اشترِ الآن</button>
-        </div>
+        <p class="card__title">طقم مغربي</p>
+        <p class="card__description">طقم تقليدي فاخر مستوحى من التراث المغربي</p>
+      </div>
+      <div class="buttons">
+        <button class="cart-button">أضف إلى السلة</button>
+        <button class="buy-button">اشترِ الآن</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="images/1754cd73-ac06-4328-b499-8a4ff9baf43d.png" alt="ساعة أنيقة">
+      <img src="/mnt/data/file-K38shpiUwrw7MgBYpepAoi.png" alt="عقد مغربي عصري">
       <div class="card__content">
-        <p class="card__title">ساعة أنيقة</p>
-        <p class="card__description">مزينة بالأحجار الخضراء والذهب الأبيض</p>
-        <div class="buttons">
-          <button class="cart-button">أضف إلى السلة</button>
-          <button class="buy-button">اشترِ الآن</button>
-        </div>
+        <p class="card__title">عقد عصري</p>
+        <p class="card__description">عقد بخيوط حمراء ولمسات ذهبية</p>
+      </div>
+      <div class="buttons">
+        <button class="cart-button">أضف إلى السلة</button>
+        <button class="buy-button">اشترِ الآن</button>
       </div>
     </div>
   </section>
