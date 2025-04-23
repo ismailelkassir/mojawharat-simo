@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>مجوهرات سيمو</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -34,12 +33,116 @@
       font-size: 16px;
     }
 
-    .cards {
+    .products {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 30px;
       padding: 30px;
+    }
+
+    .card {
+      position: relative;
+      width: 280px;
+      height: 320px;
+      background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card svg {
+      width: 48px;
+      fill: #333;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card:hover {
+      transform: rotate(-5deg) scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #fff;
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .card:hover .card__content {
+      transform: translate(-50%, -50%) rotate(0deg);
+      opacity: 1;
+    }
+
+    .card__title {
+      margin: 0;
+      font-size: 20px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .card__description {
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    .card:hover svg {
+      scale: 0;
+      transform: rotate(-45deg);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .cart-button, .buy-button {
+      flex: 1;
+      padding: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .cart-button {
+      background-color: #d4af37;
+      color: white;
+    }
+
+    .buy-button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .cart-button:hover {
+      background-color: #caa02b;
+    }
+
+    .buy-button:hover {
+      background-color: #218838;
     }
   </style>
 </head>
@@ -54,31 +157,44 @@
     </div>
   </header>
 
-  <section class="cards">
+  <section class="products">
     <div class="card">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+      <img src="images/7abaf159-0987-4c6f-a7fd-c160451fc409.png" alt="طقم فضة راقي">
       <div class="card__content">
         <p class="card__title">طقم فضة راقي</p>
-        <p class="card__description">طقم فضة فاخر مرصع بالأحجار الوردية لتألق لا مثيل له</p>
+        <p class="card__description">مرصع بالأحجار الوردية لتألق لا مثيل له</p>
+        <div class="buttons">
+          <button class="cart-button">أضف إلى السلة</button>
+          <button class="buy-button">اشترِ الآن</button>
+        </div>
       </div>
     </div>
 
     <div class="card">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+      <img src="images/1dee746a-8af0-454c-b72b-0ea0e6c71004.png" alt="عقد تقليدي">
       <div class="card__content">
-        <p class="card__title">عقد تقليدي</p>
-        <p class="card__description">عقد مغربي تقليدي بلمسة عصرية من الخرز الأحمر</p>
+        <p class="card__title">عقد مغربي</p>
+        <p class="card__description">تقليدي بلمسة عصرية من الخرز الأحمر</p>
+        <div class="buttons">
+          <button class="cart-button">أضف إلى السلة</button>
+          <button class="buy-button">اشترِ الآن</button>
+        </div>
       </div>
     </div>
 
     <div class="card">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg>
+      <img src="images/1754cd73-ac06-4328-b499-8a4ff9baf43d.png" alt="ساعة أنيقة">
       <div class="card__content">
         <p class="card__title">ساعة أنيقة</p>
-        <p class="card__description">ساعة أنيقة مزينة بالأحجار الخضراء والذهب الأبيض</p>
+        <p class="card__description">مزينة بالأحجار الخضراء والذهب الأبيض</p>
+        <div class="buttons">
+          <button class="cart-button">أضف إلى السلة</button>
+          <button class="buy-button">اشترِ الآن</button>
+        </div>
       </div>
     </div>
   </section>
 
 </body>
 </html>
+
