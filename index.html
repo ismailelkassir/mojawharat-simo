@@ -231,6 +231,9 @@
     </div>
   </header>
 
+  <section class="products" id="home-products"></section>
+  <section class="products" id="favorites" style="display:none;"></section>
+
   <section class="container">
     <div class="form_area">
       <p class="title">معلومات الشراء</p>
@@ -255,8 +258,6 @@
       </form>
     </div>
   </section>
-
-  <section class="products" id="favorites" style="display:none;"></section>
 
   <script>
     const favoriteProducts = [];
@@ -292,48 +293,56 @@
       const whatsappUrl = `https://wa.me/212123456789?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
+
+    function htmlEscape(str) {
+      return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+    }
+
+    const products = [
+      {
+        title: 'خاتم ذهبي فاخر',
+        description: 'خاتم أنيق مطلي بالذهب عيار 18 قيراط.',
+        image: 'https://via.placeholder.com/280x200?text=خاتم'
+      },
+      {
+        title: 'قلادة مرصعة بالأحجار',
+        description: 'قلادة جميلة تحتوي على أحجار كريمة براقة.',
+        image: 'https://via.placeholder.com/280x200?text=قلادة'
+      }
+    ];
+
+    const homeContainer = document.getElementById('home-products');
+    products.forEach(product => {
+      const html = `
+        <div class="card">
+          <img src="${product.image}" alt="${product.title}">
+          <div class="card__content">
+            <h3 class="card__title">${product.title}</h3>
+            <p class="card__description">${product.description}</p>
+            <div class="buttons">
+              <button class="cart-button">🛒</button>
+              <button class="buy-button">شراء</button>
+              <button class="fav-button" onclick="toggleFavorite(this, \`${htmlEscape(`
+                <div class='card'>
+                  <img src='${product.image}' alt='${product.title}'>
+                  <div class='card__content'>
+                    <h3 class='card__title'>${product.title}</h3>
+                    <p class='card__description'>${product.description}</p>
+                  </div>
+                </div>
+              `)}\`)">❤️</button>
+            </div>
+          </div>
+        </div>
+      `;
+      homeContainer.innerHTML += html;
+    });
   </script>
 
 </body>
-<script>
-  const sampleProducts = [
-    {
-      title: 'خاتم ذهبي فاخر',
-      description: 'خاتم أنيق مطلي بالذهب عيار 18 قيراط.',
-      image: 'https://via.placeholder.com/280x200?text=خاتم'
-    },
-    {
-      title: 'سلسلة لؤلؤ راقية',
-      description: 'سلسلة مرصعة باللؤلؤ الطبيعي لأناقة لا مثيل لها.',
-      image: 'https://via.placeholder.com/280x200?text=سلسلة'
-    },
-    {
-      title: 'أقراط فاخرة',
-      description: 'أقراط مميزة بتصميم عصري وجذاب.',
-      image: 'https://via.placeholder.com/280x200?text=أقراط'
-    }
-  ];
-
-  const productContainer = document.querySelector('.products');
-
-  sampleProducts.forEach(product => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.title}">
-      <div class="card__content">
-        <h3 class="card__title">${product.title}</h3>
-        <p class="card__description">${product.description}</p>
-        <div class="buttons">
-          <button class="cart-button">أضف إلى السلة</button>
-          <button class="buy-button">شراء</button>
-          <button class="fav-button" onclick="toggleFavorite(this, \`${card.outerHTML}\`)">❤️</button>
-        </div>
-      </div>
-    `;
-    productContainer.appendChild(card);
-  });
-</script>
-  
 </html>
 
