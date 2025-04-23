@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISMAIdiyamo</title>
+  <meta name="description" content="ISMAIdiyamo: ملابس رياضية عصرية تجمع بين الأناقة والراحة. اكتشف تشكيلتنا الآن.">
+  <meta name="keywords" content="ISMAIdiyamo, ملابس رياضية, موضة, أناقة, يوجا, activewear, athleisure">
+  <meta name="author" content="ISMAIdiyamo">
+  <title>ISMAIdiyamo | ملابس رياضية عصرية للنساء</title>
   <style>
     body {
       margin: 0;
@@ -97,6 +100,51 @@
       font-size: 18px;
     }
 
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .modal-content input[type="email"]:invalid {
+      border-color: red;
+    }
+
+    .modal-content button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     footer {
       background: #f0f0f0;
       padding: 20px;
@@ -107,23 +155,35 @@
   </style>
 </head>
 <body>
+  <div class="modal" id="welcomeModal">
+    <div class="modal-content">
+      <h2>JOIN NOW</h2>
+      <p>Create an account to save items to your wishlist, track your orders, and checkout faster!</p>
+      <input type="text" placeholder="First Name">
+      <input type="text" placeholder="Last Name">
+      <input type="email" placeholder="Email" pattern=".+@gmail\.com" required>
+      <input type="password" placeholder="Password">
+      <button onclick="document.getElementById('welcomeModal').style.display='none'">Join Now</button>
+    </div>
+  </div>
+
   <header>
     <div class="logo">ISMAIdiyamo</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <h1>Welcome to ISMAIdiyamo</h1>
     <p>Inspired athletic wear for your lifestyle</p>
     <button class="button">Shop Now</button>
   </section>
 
-  <section class="products">
+  <section class="products" id="shop">
     <div class="product">
       <img src="https://images.unsplash.com/photo-1593032465171-8be1d4b9c5f4" alt="product 1">
       <h3>Elegant Activewear Set</h3>
@@ -142,8 +202,26 @@
     </div>
   </section>
 
+  <section id="about" style="padding: 40px; text-align: center;">
+    <h2>About Us</h2>
+    <p>ISMAIdiyamo offers fashion-forward activewear made with quality and comfort in mind. Our mission is to empower your movement with style.</p>
+  </section>
+
+  <section id="contact" style="padding: 40px; text-align: center;">
+    <h2>Contact</h2>
+    <p>For inquiries or support, reach out to us at <a href="mailto:contact@ismaidiyamo.com">contact@ismaidiyamo.com</a></p>
+  </section>
+
   <footer>
     &copy; 2025 ISMAIdiyamo. All rights reserved.
   </footer>
+
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        document.getElementById('welcomeModal').style.display = 'flex';
+      }, 10000); // 10 seconds
+    });
+  </script>
 </body>
 </html>
