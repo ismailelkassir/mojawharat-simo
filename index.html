@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>مجوهرات سيمو</title>
+  <link rel="icon" href="images/logo.png" type="image/png">
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -101,7 +102,7 @@
       margin-top: 15px;
     }
 
-    .cart-button, .buy-button {
+    .cart-button, .buy-button, .fav-button {
       padding: 15px 25px;
       border: unset;
       border-radius: 15px;
@@ -118,7 +119,7 @@
       cursor: pointer;
     }
 
-    .cart-button::before, .buy-button::before {
+    .cart-button::before, .buy-button::before, .fav-button::before {
       content: "";
       position: absolute;
       top: 0;
@@ -133,12 +134,93 @@
       transition: all 250ms;
     }
 
-    .cart-button:hover, .buy-button:hover {
+    .cart-button:hover, .buy-button:hover, .fav-button:hover {
       color: #e8e8e8;
     }
 
-    .cart-button:hover::before, .buy-button:hover::before {
+    .cart-button:hover::before, .buy-button:hover::before, .fav-button:hover::before {
       width: 100%;
+    }
+
+    .form-box {
+      max-width: 300px;
+      background: #f1f7fe;
+      overflow: hidden;
+      border-radius: 16px;
+      color: #010101;
+      margin: 40px auto;
+    }
+
+    .form {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 32px 24px 24px;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .form-container {
+      overflow: hidden;
+      border-radius: 8px;
+      background-color: #fff;
+      margin: 1rem 0 .5rem;
+      width: 100%;
+    }
+
+    .input {
+      background: none;
+      border: 0;
+      outline: 0;
+      height: 40px;
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      font-size: .9rem;
+      padding: 8px 15px;
+    }
+
+    .form-section {
+      padding: 16px;
+      font-size: .85rem;
+      background-color: #e0ecfb;
+      box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+    }
+
+    .form-section a {
+      font-weight: bold;
+      color: #0066ff;
+      transition: color .3s ease;
+    }
+
+    .form-section a:hover {
+      color: #005ce6;
+      text-decoration: underline;
+    }
+
+    .form button {
+      background-color: #0066ff;
+      color: #fff;
+      border: 0;
+      border-radius: 24px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color .3s ease;
+    }
+
+    .form button:hover {
+      background-color: #005ce6;
     }
   </style>
 </head>
@@ -147,7 +229,7 @@
   <header>
     <div class="logo">مجوهرات سيمو</div>
     <div class="icons">
-      <a href="login.html">👤 تسجيل الدخول</a>
+      <a href="#login">👤 تسجيل الدخول</a>
       <a href="#">❤️ المفضلة</a>
       <a href="#">🛒 السلة</a>
     </div>
@@ -155,7 +237,7 @@
 
   <section class="products">
     <div class="card">
-      <img src="images/necklace.png" alt="خاتم ذهبي فاخر">
+      <img src="images/ring.png" alt="خاتم ذهبي فاخر">
       <div class="card__content">
         <p class="card__title">خاتم فاخر</p>
         <p class="card__description">خاتم ذهبي مرصع بفصوص براقة لأناقة راقية</p>
@@ -163,11 +245,12 @@
       <div class="buttons">
         <button class="cart-button">أضف إلى السلة</button>
         <button class="buy-button">اشترِ الآن</button>
+        <button class="fav-button" onclick="scrollToTop()">❤️</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="/mnt/data/file-Cju7PFmRxSssz7dYEPS73P.png" alt="طقم تقليدي فاخر">
+      <img src="images/necklace.png" alt="طقم تقليدي فاخر">
       <div class="card__content">
         <p class="card__title">طقم مغربي</p>
         <p class="card__description">طقم تقليدي فاخر مستوحى من التراث المغربي</p>
@@ -175,11 +258,12 @@
       <div class="buttons">
         <button class="cart-button">أضف إلى السلة</button>
         <button class="buy-button">اشترِ الآن</button>
+        <button class="fav-button" onclick="scrollToTop()">❤️</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="/mnt/data/file-K38shpiUwrw7MgBYpepAoi.png" alt="عقد مغربي عصري">
+      <img src="images/bracelet.png" alt="عقد مغربي عصري">
       <div class="card__content">
         <p class="card__title">عقد عصري</p>
         <p class="card__description">عقد بخيوط حمراء ولمسات ذهبية</p>
@@ -187,10 +271,35 @@
       <div class="buttons">
         <button class="cart-button">أضف إلى السلة</button>
         <button class="buy-button">اشترِ الآن</button>
+        <button class="fav-button" onclick="scrollToTop()">❤️</button>
       </div>
     </div>
   </section>
 
+  <section id="login">
+    <div class="form-box">
+      <form class="form">
+        <span class="title">تسجيل الدخول</span>
+        <span class="subtitle">مرحباً بك من جديد!</span>
+        <div class="form-container">
+          <input type="email" class="input" placeholder="البريد الإلكتروني" required>
+          <input type="password" class="input" placeholder="كلمة المرور" required>
+        </div>
+        <button type="submit">دخول</button>
+      </form>
+      <div class="form-section">
+        لا تملك حساباً؟ <a href="#">سجل الآن</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
+
 
