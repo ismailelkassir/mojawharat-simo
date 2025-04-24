@@ -1,227 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ISMAIdiyamo: ملابس رياضية عصرية تجمع بين الأناقة والراحة. اكتشف تشكيلتنا الآن.">
-  <meta name="keywords" content="ISMAIdiyamo, ملابس رياضية, موضة, أناقة, يوجا, activewear, athleisure">
-  <meta name="author" content="ISMAIdiyamo">
-  <title>ISMAIdiyamo | ملابس رياضية عصرية للنساء</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NAIL - الصفحة الرئيسية</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #fff;
-      color: #222;
+      font-family: 'Cairo', sans-serif;
+      background-color: #111;
+      color: white;
     }
 
     header {
-      background: #f5f5f5;
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 20px;
+      background-color: #222;
     }
 
     .logo {
       font-size: 24px;
       font-weight: bold;
+      color: #00bfff;
     }
 
-    nav a {
-      margin: 0 15px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
       text-decoration: none;
-      color: #333;
-      font-weight: 500;
+      color: white;
+      transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #007bff;
+    nav ul li a:hover {
+      color: #00bfff;
     }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-      background-image: url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      padding: 100px 20px;
       text-align: center;
+      background: url('hero-bg.jpg') no-repeat center center/cover;
     }
 
     .hero h1 {
-      font-size: 48px;
-      margin: 0;
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
     .hero p {
-      font-size: 18px;
-      margin-top: 10px;
+      font-size: 20px;
+      color: #ccc;
     }
 
-    .button {
+    .cta {
       margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      background: #000;
-      color: #fff;
+      padding: 10px 30px;
+      background-color: #00bfff;
       border: none;
-      border-radius: 30px;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
       cursor: pointer;
+    }
+
+    .cta:hover {
+      background-color: #0094cc;
     }
 
     .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-
-    .product {
-      background: #fafafa;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .product img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .product h3 {
-      padding: 10px;
-      font-size: 18px;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 30px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 8px;
+      padding: 50px 20px;
       text-align: center;
     }
 
-    .modal-content input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    .products h2 {
+      font-size: 28px;
+      color: #00bfff;
     }
 
-    .modal-content input[type="email"]:invalid {
-      border-color: red;
-    }
-
-    .modal-content button {
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
       margin-top: 20px;
-      padding: 10px;
+    }
+
+    .product-card {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 12px;
+      width: 200px;
+    }
+
+    .product-card img {
       width: 100%;
-      background: #000;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .product-card p {
+      margin-top: 10px;
+      font-size: 16px;
     }
 
     footer {
-      background: #f0f0f0;
       padding: 20px;
+      background-color: #222;
       text-align: center;
+      margin-top: 50px;
+    }
+
+    footer p {
       font-size: 14px;
-      color: #666;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <div class="modal" id="welcomeModal">
-    <div class="modal-content">
-      <h2>JOIN NOW</h2>
-      <p>Create an account to save items to your wishlist, track your orders, and checkout faster!</p>
-      <input type="text" placeholder="First Name">
-      <input type="text" placeholder="Last Name">
-      <input type="email" placeholder="Email" pattern=".+@gmail\.com" required>
-      <input type="password" placeholder="Password">
-      <button onclick="document.getElementById('welcomeModal').style.display='none'">Join Now</button>
-    </div>
-  </div>
 
   <header>
-    <div class="logo">ISMAIdiyamo</div>
+    <div class="logo">NAIL</div>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#">Chira</a></li>
+        <li><a href="#">Matjar</a></li>
+        <li><a href="#">Asala</a></li>
+        <li><a href="#">Tasjil Dokhol</a></li>
+        <li><a href="#">Tawasal M3ana</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <h1>Welcome to ISMAIdiyamo</h1>
-    <p>Inspired athletic wear for your lifestyle</p>
-    <button class="button">Shop Now</button>
+  <section class="hero">
+    <h1>مرحبا بك في NAIL</h1>
+    <p>اكتشف أجمل تشكيلات المجوهرات</p>
+    <button class="cta">Chira</button>
   </section>
 
-  <section class="products" id="shop">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1593032465171-8be1d4b9c5f4" alt="product 1">
-      <h3>Elegant Activewear Set</h3>
+  <section class="products">
+    <h2>منتجات مميزة</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="img1.jpg" alt="خاتم أنيق">
+        <p>خاتم أنيق</p>
+      </div>
+      <div class="product-card">
+        <img src="img2.jpg" alt="عقد فاخر">
+        <p>عقد فاخر</p>
+      </div>
+      <div class="product-card">
+        <img src="img3.jpg" alt="أقراط مذهلة">
+        <p>أقراط مذهلة</p>
+      </div>
     </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1600181953601-c8c418b0cdd5" alt="product 2">
-      <h3>Yoga Flow Collection</h3>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2" alt="product 3">
-      <h3>Urban Comfort Hoodie</h3>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8d" alt="product 4">
-      <h3>FlexFit Leggings</h3>
-    </div>
-  </section>
-
-  <section id="about" style="padding: 40px; text-align: center;">
-    <h2>About Us</h2>
-    <p>ISMAIdiyamo offers fashion-forward activewear made with quality and comfort in mind. Our mission is to empower your movement with style.</p>
-  </section>
-
-  <section id="contact" style="padding: 40px; text-align: center;">
-    <h2>Contact</h2>
-    <p>For inquiries or support, reach out to us at <a href="mailto:contact@ismaidiyamo.com">contact@ismaidiyamo.com</a></p>
   </section>
 
   <footer>
-    &copy; 2025 ISMAIdiyamo. All rights reserved.
+    <p>تواصل معنا: lagsirismail@gmail.com - 0611442030</p>
   </footer>
 
-  <script>
-    window.addEventListener('load', function() {
-      setTimeout(() => {
-        document.getElementById('welcomeModal').style.display = 'flex';
-      }, 10000); // 10 seconds
-    });
-  </script>
 </body>
 </html>
+
